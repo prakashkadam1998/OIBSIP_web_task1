@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png"
+        href="https://png.pngtree.com/png-clipart/20190903/original/pngtree-flat-temperature-icon-download-png-image_4441297.jpg" />
+    <style>
+        .marquee {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+
+        .marquee-content img {
+            display: inline-block;
+            /* Keep them side by side */
+            height: 60px;
+            /* adjust as needed */
+            margin: 0 2rem;
+            /* spacing between logos */
+            vertical-align: middle;
+            /* align nicely */
+        }
+
+        @keyframes marquee-left {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marquee-right {
+            from {
+                transform: translateX(-50%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .marquee-left .marquee-content {
+            animation-name: marquee-left;
+        }
+
+        .marquee-right .marquee-content {
+            animation-name: marquee-right;
+        }
+    </style>
+</head>
+
+<body>
+    <div className='  font-sans pt-18 md:pt-20'>
+        <nav class="bg-green-200 w-full fixed z-10 top-0">
+            <div class="mx-auto px-6 md:px-16 py-4 flex justify-between items-center">
+
+                <h1 class="font-mono text-green-600 text-3xl md:text-5xl">Brevo</h1>
+
+                <ul class="hidden md:flex space-x-6 text-lg font-medium">
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+
+                <div class="hidden md:flex space-x-2 items-center">
+                    <i class="ri-global-line text-2xl md:text-4xl px-2 border-r-2 border-gray-300"></i>
+                    <a class="underline p-2" href="#">Log in</a>
+                    <button class="py-1 px-3 text-white bg-green-800 border-2 rounded-lg">Sign Up Free</button>
+                    <button class="py-1 px-3 text-green-700 border-2 border-green-700 rounded-lg">Get a demo</button>
+                </div>
+                <button id="menu-btn" class="md:hidden text-3xl focus:outline-none">
+                    ☰
+                </button>
+            </div>
+
+            <!-- Mobile Menu (hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden bg-green-100 px-6 py-4 space-y-4">
+                <ul class="space-y-3 text-lg font-medium">
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Resources</a></li>
+                </ul>
+                <div class="space-y-3">
+                    <a class="underline block" href="#">Log in</a>
+                    <button class="w-full py-2 text-white bg-green-800 border-2 rounded-lg">Sign Up Free</button>
+                    <button class="w-full py-2 text-green-700 border-2 border-green-700 rounded-lg">Get a demo</button>
+                </div>
+            </div>
+        </nav>
+
+        <section
+            class='bg-green-100 w-full h-5/6 rounded-ee-[3.8rem] md:rounded-ee-[9.2rem] flex items-center justify-center'
+            id='hero'>
+            <div class='flex flex-col md:flex-row w-full h-full text-start p-9'>
+
+                <div class='w-full md:w-1/2 py-20 md:p-20 items-center text-center md:text-left'>
+                    <h2 class='text-2xl md:text-3xl font-bold'>Grow with Smarter<br></br> Email Marketing & CRM</h2>
+                    <p class='text-base py-3'>All-in-one AI-enabled platform to manage your customer relationships
+                        via Email, SMS, WhatsApp, Chat, and more.</p>
+                    <button class='bg-green-800 text-white w-full py-4 md:w-44 rounded-xl text-xl'>Sign up
+                        free</button>
+                </div>
+                <div class='w-full md:w-1/2 flex items-center'><img class='h-60 md:h-80 w-100'
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2024/06/sea-hero-products.webp'></img>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class='text-center py-10 font-semibold'>Join 500,000+ customers around the world who trust Brevo
+            </div>
+            <div class='marquee marquee-right'>
+                <div class='marquee-content'>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bodybuilding.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-ebay.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bloomreach.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-thekooples.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-montblanc.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-michelin.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-louis-vuitton.webp'></img>
+
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bodybuilding.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-ebay.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bloomreach.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-thekooples.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-montblanc.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-michelin.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-louis-vuitton.webp'></img>
+                </div>
+            </div>
+        </section>
+
+        <section id='platform' class='mt-10'>
+            <h2 class='text-center md:py-10 font-semibold text-2xl'>One platform, five ways to grow</h2>
+            <div class='flex flex-row flex-wrap  p-6 items-center justify-center'>
+                <div class='space-y-6 border-2 w-auto border-indigo-500 p-4 rounded-ss-3xl rounded-ee-3xl m-y-4'>
+                    <div class='flex justify-between'>
+                        <h3 class='text-xl font-medium'>Marketing Platform</h3>
+                        <i class="ri-message-2-fill text-2xl"></i>
+                    </div>
+                    <div>Drive conversions with AI-driven multichannel <br></br> marketing and automation</div>
+                    <div>
+                        <h4>Top Features:</h4>
+                        <ul class="list-disc list-inside">
+                            <li>Email Marketing</li>
+                            <li>Aura AI: Content creation</li>
+                            <li>SMS & WhatsApp campaigns</li>
+                        </ul>
+                    </div>
+                    <div class='flex justify-center'>
+                        <button class='rounded-xl py-2 px-24 bg-indigo-500'>Find out more</button>
+                    </div>
+                </div>
+                <div class='space-y-6 border-2 w-auto border-amber-700 p-4 rounded-ss-3xl rounded-ee-3xl m-4'>
+                    <div class='flex justify-between'>
+                        <h3 class='text-xl font-medium'>Sales Platform</h3>
+                        <i class="ri-money-dollar-circle-line text-2xl"></i>
+                    </div>
+                    <div>Drive conversions with AI-driven multichannel <br></br> marketing and automation</div>
+                    <div>
+                        <h4>Top Features:</h4>
+                        <ul class="list-disc list-inside">
+                            <li>Email Marketing</li>
+                            <li>Aura AI: Content creation</li>
+                            <li>SMS & WhatsApp campaigns</li>
+                        </ul>
+                    </div>
+                    <div class='flex justify-center'>
+                        <button class='rounded-xl py-2 px-24 bg-amber-700'>Find out more</button>
+                    </div>
+                </div>
+                <div class='space-y-6 border-2 w-auto border-fuchsia-700 p-4 rounded-ss-3xl rounded-ee-3xl m-4'>
+                    <div class='flex justify-between'>
+                        <h3 class='text-xl font-medium'>Coversation Platform</h3>
+                        <i class="ri-phone-line text-2xl"></i>
+                    </div>
+                    <div>Drive conversions with AI-driven multichannel <br></br> marketing and automation</div>
+                    <div>
+                        <h4>Top Features:</h4>
+                        <ul class="list-disc list-inside">
+                            <li>Email Marketing</li>
+                            <li>Aura AI: Content creation</li>
+                            <li>SMS & WhatsApp campaigns</li>
+                        </ul>
+                    </div>
+                    <div class='flex justify-center'>
+                        <button class='rounded-xl py-2 px-24 bg-fuchsia-700'>Find out more</button>
+                    </div>
+                </div>
+                <div class='space-y-6 border-2 w-auto border-blue-700 p-4 rounded-ss-3xl rounded-ee-3xl m-4'>
+                    <div class='flex justify-between'>
+                        <h3 class='text-xl font-medium'>Coversation Platform</h3>
+                        <i class="ri-contacts-book-3-line text-2xl"></i>
+                    </div>
+                    <div>Drive conversions with AI-driven multichannel <br></br> marketing and automation</div>
+                    <div>
+                        <h4>Top Features:</h4>
+                        <ul class="list-disc list-inside">
+                            <li>Email Marketing</li>
+                            <li>Aura AI: Content creation</li>
+                            <li>SMS & WhatsApp campaigns</li>
+                        </ul>
+                    </div>
+                    <div class='flex justify-center'>
+                        <button class='rounded-xl py-2 px-24 bg-blue-700'>Find out more</button>
+                    </div>
+                </div>
+                <div class='space-y-6 border-2 w-auto border-teal-700 p-4    rounded-tl-3xl rounded-ee-3xl m-4'>
+                    <div class='flex justify-between'>
+                        <h3 class='text-xl font-medium'>Coversation Platform</h3>
+                        <i class="ri-send-plane-fill text-2xl"></i>
+                    </div>
+                    <div>Drive conversions with AI-driven multichannel <br></br> marketing and automation</div>
+                    <div>
+                        <h4>Top Features:</h4>
+                        <ul class="list-disc list-inside">
+                            <li>Email Marketing</li>
+                            <li>Aura AI: Content creation</li>
+                            <li>SMS & WhatsApp campaigns</li>
+                        </ul>
+                    </div>
+                    <div class='flex justify-center'>
+                        <button class='rounded-xl py-2 px-24 bg-teal-700'>Find out more</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id='platform' class='m-10'>
+            <div class='flex flex-col md:flex-row p-6  items-end justify-between'>
+                <div class='w-full md:w-1/2 self-end mb-10 md:m-0'><img class='h-64 md:px-16'
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2024/06/sea-hero-products.webp'></img>
+                </div>
+                <div class='w-full md:w-1/2 space-y-4'>
+                    <span class='rounded-2xl p-1 px-2 border border-blue-300 bg-blue-50'>Powered by Aura AI</span>
+                    <h3 class='text-2xl font-semibold'>Your AI Marketing Team is ready to work 🚀</h3>
+                    <p>Say hello to Aura—your always-on, AI-powered team—writing, analyzing, and optimizing your
+                        campaigns in real time. From content creation to smart segmentation and send at best individual
+                        time, our AI agents do the heavy lifting so you can focus on strategy. Maximize impact, minimize
+                        effort, and drive cost-effective efficiency.</p>
+                    <button class='bg-green-800 text-white py-2 w-full md:w-44 rounded-xl text-xl'>Learn
+                        more</button>
+                </div>
+            </div>
+        </section>
+
+        <section id='awards' class='m-10'>
+            <div class='flex flex-col md:flex-row p-6  items-stretch justify-between gap-8'>
+                <div class='w-full md:w-1/2 text-center bg-yellow-50'>
+                    <h4 class='py-2'>Awarded for excellence</h4>
+                    <div class='m-12 grid grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-6 place-items-center '>
+                        <img class='h-28'
+                            src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/BestEstimatedROI_Enterprise_Roi.webp'></img>
+                        <img class='h-28'
+                            src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/BestUsability_Small-Business_Total.webp'></img>
+                        <img class='h-28'
+                            src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/BestUsability_Small-Business_Total.webp'></img>
+                        <img class='h-28'
+                            src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/MomentumLeader_Leader.webp'></img>
+                        <img class='h-28'
+                            src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/EasiestToDoBusinessWith_Mid-Market_EaseOfDoingBusinessWith.webp'></img>
+                        <img class='h-28'
+                            src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/EasiestToDoBusinessWith_Mid-Market_EaseOfDoingBusinessWith.webp'></img>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-center bg-yellow-50">
+                    <h3 class="text-gray-700 font-medium py-2">Loved by users everywhere</h3>
+                    <div class="m-12 grid grid-cols-1 sm:grid-cols-1 gap-6 text-left">
+
+                        <div class="flex items-center space-x-4">
+                            <img src="	https://corp-backend.brevo.com/wp-content/uploads/2023/12/G2-original-1.svg"
+                                alt="G2" class="h-10" />
+                            <div>
+                                <p class="text-green-800 font-medium">2200+ reviews</p>
+                                <div class="flex text-green-800 text-xl">
+                                    ★★★★☆
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center space-x-4">
+                            <img src="https://corp-backend.brevo.com/wp-content/uploads/2023/12/Capterra-original-1.svg"
+                                alt="Capterra" class="h-10" />
+                            <div>
+                                <p class="text-green-800 font-medium">2900+ reviews</p>
+                                <div class="flex text-green-800 text-xl">
+                                    ★★★★☆
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="flex items-center space-x-4">
+                            <img src="https://corp-backend.brevo.com/wp-content/uploads/2024/10/GetApp-1.svg"
+                                alt="GetApp" class="h-10" />
+                            <div>
+                                <p class="text-green-800 font-medium">2800+ reviews</p>
+                                <div class="flex text-green-800 text-xl">
+                                    ★★★★☆
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id='platform' class='m-10'>
+            <div class='flex flex-col md:flex-row p-6 justify-between'>
+                <div class='w-full md:w-1/2 '>
+                    <h2 class='text-2xl my-4'>Solutions for every business</h2>
+                    <button
+                        class=' text-green-800 py-2   hidden md:block px-8 rounded-xl text-xl border-green-800 border-2'>Read
+                        all customer stories</button>
+                </div>
+                <div class='w-full md:w-1/2 space-y-4'>
+                    <p>“We can better leverage the suite of CRM- and email-automation features from Brevo to deliver the
+                        greatest value for our clients. Relative to other solutions and implementations we’ve worked on
+                        previously, Brevo is second-to-none.”</p>
+
+                    <div class='flex flex-col md:flex-row pt-8 pb-4'>
+                        <img src="https://corp-backend.brevo.com/wp-content/uploads/2023/12/G2-original-1.svg" alt="G2"
+                            class="h-10" />
+                        <div class='text-center md:text-start'>
+                            <div>Lisa Pedersen</div>
+                            <div>Founder of Lisa Pedersen Media</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button
+                        class=' text-green-800 py-2 md:hidden px-8 rounded-xl text-xl border-green-800 border-2'>Read
+                        all customer stories</button>
+                </div>
+            </div>
+        </section>
+
+        <section class='bg-green-100 rounded-t-[3.2rem] md:rounded-t-[6.2rem] text-center'>
+            <h2 class='text-2xl text-center pt-12 pb-4 mx-12'>Brevo connects to the tools you already use</h2>
+            <p class='text-base text-center py-4 mx-16'>Brevo runs alongside more than 150 leading digital tools,
+                from CRM to CMS, ecommerce, and more.</p>
+            <div class='marquee marquee-right py-4'>
+                <div class='marquee-content'>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bodybuilding.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-ebay.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bloomreach.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-thekooples.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-montblanc.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-michelin.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-louis-vuitton.webp'></img>
+
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bodybuilding.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-ebay.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-bloomreach.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-amnesty.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-thekooples.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-montblanc.webp'></img>
+                    <img src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-michelin.webp'></img>
+                    <img
+                        src='https://corp-backend.brevo.com/wp-content/uploads/2025/04/Clientlogo-louis-vuitton.webp'></img>
+                </div>
+            </div>
+            <button
+                class='my-4 py-2 px-4 text-xl font-semibold text-green-800 rounded-lg hover:bg-white hover:shadow-slate-400 hover:shadow-sm'>See
+                integrations</button>
+
+            <div class='bg-green-200 rounded-t-[3.2rem] md:rounded-t-[6.2rem] text-center p-12'>
+                <h2 class='text-2xl text-center pb-4'>Ready to get started?</h2>
+                <p class='text-lg text-center py-4'>Create your free account, no credit card needed.</p>
+                <button class='bg-green-800 text-white w-full md:w-44 py-2 px-8 rounded-xl text-xl'>Sign up
+                    free</button>
+            </div>
+        </section>
+        <footer class='my-8 mx-10'>
+            <div class='flex flex-col md:flex-row justify-between items-center'>
+                <h1 class='font-normal font-mono text-green-600 text-5xl'>Brevo</h1>
+                <ul class='flex space-x-6 text-lg font-medium'>
+                    <li><i class="ri-twitter-x-fill text-3xl"></i></li>
+                    <li><i class="ri-linkedin-box-fill text-3xl"></i></li>
+                    <li><i class="ri-youtube-fill text-3xl"></i></li>
+                    <li><i class="ri-instagram-line text-3xl"></i></li>
+                    <li><i class="ri-facebook-circle-fill text-3xl"></i></li>
+
+                </ul>
+            </div>
+
+            <div class='grid grid-cols-2 md:grid-cols-5 gap-8 py-4'>
+                <section class='flex flex-col space-y-4'>
+                    <a class='text-lg font-semibold'>PRODUCT</a>
+                    <a>Why Brevo?</a>
+                    <a>Email marketing</a>
+                    <a>Transactional email</a>
+                    <a>Wallet</a>
+                    <a>Enterprise solution</a>
+                </section>
+                <section class='flex flex-col space-y-4'>
+                    <a class='text-lg font-semibold'>COMPARE</a>
+                    <a>Why Brevo?</a>
+                    <a>Email marketing</a>
+                    <a>Transactional email</a>
+                    <a>Wallet</a>
+                    <a>Enterprise solution</a>
+                </section>
+                <section class='flex flex-col space-y-4'>
+                    <a class='text-lg font-semibold'>RESOURCES</a>
+                    <a>Why Brevo?</a>
+                    <a>Email marketing</a>
+                    <a>Transactional email</a>
+                    <a>Wallet</a>
+                    <a>Enterprise solution</a>
+                </section>
+                <section class='flex flex-col space-y-4'>
+                    <a class='text-lg font-semibold'>PARTNERS</a>
+                    <a>Why Brevo?</a>
+                    <a>Email marketing</a>
+                    <a>Transactional email</a>
+                    <a>Wallet</a>
+                    <a>Enterprise solution</a>
+                </section>
+                <section class='flex flex-col space-y-4'>
+                    <a class='text-lg font-semibold'>COMPANY</a>
+                    <a>Why Brevo?</a>
+                    <a>Email marketing</a>
+                    <a>Transactional email</a>
+                    <a>Wallet</a>
+                    <a>Enterprise solution</a>
+                </section>
+            </div>
+            <hr class="border-t-1 border-slate-600 my-4" />
+            <div class='flex flex-col md:flex-row justify-between my-4 py-4'>
+                <a>Cookie Settings</a>
+                <a>Anti-spam</a>
+                <a>Privacy</a>
+                <a>User Agreement</a>
+                <a>Legal Notice</a>
+                <a>Responsible Disclosure</a>
+                <a>© Brevo 2025. All rights reserved</a>
+                <a></a>
+            </div>
+        </footer>
+
+
+    </div>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
